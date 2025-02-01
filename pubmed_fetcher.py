@@ -8,11 +8,24 @@ Entrez.email = 'siddhanthagarwal984@gmail.com'
 
 
 def fetch_papers(query, debug=False, output_file=None):
+    """
+    Fetch papers from PubMed based on a query and save the data to a CSV file or print to console.
+
+    Parameters:
+    - query (str): Search query for PubMed.
+    - debug (bool): Enables debug mode for verbose output.
+    - output_file (str): Filename to save the CSV output; prints to console if None.
+
+    Returns:
+    - None
+    """
+
+    # Search for papers in PubMed using the query
     handle = Entrez.esearch(db='pubmed', retmax=10, term=query)
     record = Entrez.read(handle)
     id_list = record['IdList']
     #######
-    # DataFrame to store the extracted data
+    # Initialize a DataFrame to store the extracted data
     df = pd.DataFrame(columns=['PubmedID', 'Title', 'Publication Date', 'Non-academic Author(s)', 'Company Affiliation(s)', 'Corresponding Author Email'])
 
     for pmid in id_list:

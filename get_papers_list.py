@@ -9,18 +9,18 @@ def main():
     
     # Adding command-line arguments
     parser.add_argument(
-        "query", 
+        "query",       # Mandatory argument for the PubMed query
         help="The search query to find papers in PubMed (e.g., 'RNA cardiology')."
     )
     
     parser.add_argument(
-        "-d", "--debug", 
+        "-d", "--debug",      # Optional debug flag
         action="store_true", 
         help="Enable debug output to print additional details during execution."
     )
     
     parser.add_argument(
-        "-f", "--file", 
+        "-f", "--file",       # Optional output file argument
         help="Specify the filename to save the results as a CSV file. If not provided, the results are printed to the console."
     )
 
